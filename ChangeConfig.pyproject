@@ -1,0 +1,7 @@
+{
+    "files": [
+        "config.py",
+        "main.py",
+        "main.qml"
+    ]
+}
