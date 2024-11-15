@@ -96,8 +96,6 @@ ApplicationWindow {
                 onClicked: bridge.setReadImage(false)
             }
         }
-
-
     }
 
     Component.onCompleted: {

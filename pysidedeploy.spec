@@ -18,8 +18,6 @@ project_file = ChangeConfig.pyproject
 
 # application icon
 icon = /Users/chenqian/Projects/Playground/ChangeConfig/.qtcreator/Python_3_12_0venv/lib/python3.12/site-packages/PySide6/scripts/deploy_lib/pyside_icon.icns
-bundle_id = com.shining3d.changeconfig
-version = 0.0.1
 
 [python]
 

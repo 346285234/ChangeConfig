@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import sys
+import os
 from pathlib import Path
-
 from PySide6.QtCore import QObject, Slot
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine, QmlElement
@@ -18,7 +18,9 @@ class Bridge(QObject):
 
     def __init__(self):
         super().__init__()
-        self.config = Config("/Users/chenqian/Desktop/release_mac_17467_1d3a4355/IntraoralScan2.app")
+        current_folder = os.path.dirname(os.path.abspath(__file__))
+        app_path = os.path.abspath(os.path.join(current_folder, '../../../../..'))
+        self.config = Config(app_path)
 
     @Slot(result=str)
     def getAppPath(self):
@@ -35,7 +37,6 @@ class Bridge(QObject):
         else:
             return False
 
-
     @Slot(bool)
     def setEnvironment(self, isRelease):
         self.config.setEnvironment(isRelease)
@@ -47,9 +48,6 @@ class Bridge(QObject):
     @Slot(bool)
     def setReadImage(self, isOn):
         self.config.setReadImage(isOn)
-
-
-
 
 
 if __name__ == "__main__":
