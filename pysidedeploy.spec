@@ -1,7 +1,7 @@
 [app]
 
 # title of your application
-title = ChangeConfigTool
+title = ChangeConfig
 
 # project directory. the general assumption is that project_dir is the parent directory
 # of input_file

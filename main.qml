@@ -12,7 +12,7 @@ ApplicationWindow {
     width: 640
     height: 480
     visible: true
-    title: qsTr("Change Config Tool")
+    title: qsTr("Change Config")
     Material.theme: Material.Dark
     Material.accent: Material.Red
 
