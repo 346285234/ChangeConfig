@@ -8,4 +8,7 @@ source activate
 
 # 生成app
 pyside6-deploy ../../../main.py
+
+# 签名app
+codesign --deep -s "Developer ID Application: Chengdu Xianlin Sanwei Technology Co., Ltd. (5CR2H22F2S)" -fv ChangeConfig.app
 ```
