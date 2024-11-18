@@ -49,6 +49,14 @@ class Bridge(QObject):
     def setReadImage(self, isOn):
         self.config.setReadImage(isOn)
 
+    @Slot(result=bool)
+    def getStartWithUI(self):
+        return self.config.getStartWithUI()
+
+    @Slot(bool)
+    def setStartWithUI(self, isOn):
+        self.config.setStartWithUI(isOn)
+
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)

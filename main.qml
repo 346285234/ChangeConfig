@@ -96,6 +96,26 @@ ApplicationWindow {
                 onClicked: bridge.setReadImage(false)
             }
         }
+
+        RowLayout {
+            Label {
+                text: "Start with UI"
+            }
+
+            RadioButton {
+                id: openStartWithUI
+                text: "Yes"
+
+                onClicked: bridge.setStartWithUI(true)
+            }
+
+            RadioButton {
+                id: closeStartWithUI
+                text: "No"
+
+                onClicked: bridge.setStartWithUI(false)
+            }
+        }
     }
 
     Component.onCompleted: {
@@ -113,6 +133,11 @@ ApplicationWindow {
             openReadImage.checked = true
         } else {
             closeReadImage.checked = true
+        }
+        if (bridge.getStartWithUI()) {
+            openStartWithUI.checked = true
+        } else {
+            closeStartWithUI.checked = true
         }
     }
 

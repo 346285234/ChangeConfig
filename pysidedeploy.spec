@@ -40,7 +40,7 @@ qml_files = main.qml
 excluded_qml_plugins = QtCharts,QtSensors,QtWebEngine
 
 # qt modules used. comma separated
-modules = Core,Gui,QmlMeta,QuickTemplates2,Quick,DBus,Network,QmlModels,QuickControls2,QmlWorkerScript,Qml,OpenGL
+modules = DBus,OpenGL,QmlMeta,QuickControls2,Quick,Network,Gui,QmlWorkerScript,QmlModels,Core,QuickTemplates2,Qml
 
 # qt plugins used by the application
 plugins = imageformats,platformthemes,accessiblebridge,platforms/darwin,platforminputcontexts,scenegraph,networkinformation,qmltooling,networkaccess,xcbglintegrations,generic,platforms,tls,iconengines,egldeviceintegrations

@@ -1,5 +1,5 @@
-import json
 import unittest
+from myjson import read, write
 
 
 class Config:
@@ -9,40 +9,41 @@ class Config:
 
     def getReadImage(self):
         filepath = self.app_path + '/Contents/Helpers/DentalScanAppLogic.app/Contents/Resources/config/DentalScanAppLogic/default/config/OpenCfg.json'
-        with open(filepath, 'r') as file:
-            data = json.load(file)
-
-        return data['Default']['ReadImage']
+        return read(filepath, ['Default', 'ReadImage'])
     
     def setReadImage(self, isOn):
         filepath = self.app_path + '/Contents/Helpers/DentalScanAppLogic.app/Contents/Resources/config/DentalScanAppLogic/default/config/OpenCfg.json'
-        with open(filepath, 'r') as file:
-            data = json.load(file)
+        write(filepath, ['Default', 'ReadImage'], isOn)
 
-        data['Default']['ReadImage'] = isOn
-        
-        with open(filepath, 'w') as file:
-            json.dump(data, file, indent=4)
 
     def getEnvironment(self):
         filepath = self.app_path + '/Contents/Resources/config/Launcher/LauncherCfg.json'
-        with open(filepath, 'r') as file:
-            data = json.load(file)
-
-        return data['community']['env']
+        return read(filepath, ['community', 'env'])
 
     def setEnvironment(self, isRelease):
         filepath = self.app_path + '/Contents/Resources/config/Launcher/LauncherCfg.json'
-        with open(filepath, 'r') as file:
-            data = json.load(file)
-
         if isRelease:
-            data['community']['env'] = 'release'
+            value = 'release'
         else:
-            data['community']['env'] = 'beta'
+            value = 'beta'
+        write(filepath, ['community', 'env'], value)
 
-        with open(filepath, 'w') as file:
-            json.dump(data, file, indent=4)
+    def getStartWithUI(self):
+        filepath = self.app_path + '/Contents/Resources/config/Launcher/LauncherCfg.json'
+        keypath = ['startmodulelists', 'name=default', 'startmodules', 'name=IntraoralScan']
+        if read(filepath, keypath) != None:
+            return True
+
+        return False
+
+    def setStartWithUI(self, isOn):
+        filepath = self.app_path + '/Contents/Resources/config/Launcher/LauncherCfg.json'
+        keypath = ['startmodulelists', 'name=default', 'startmodules', 'name=IntraoralScan']
+        if isOn:
+            value = {'name': 'IntraoralScan', 'path': 'IntraoralScan.exe', 'log': True, 'logToFile': 1, 'loggingRules': '', 'logExpiredDateNum': 90, 'mustStart': True, 'isGUI': True, 'startLevel': 100, 'exitLevel': 100}
+        else:
+            value = ''
+        write(filepath, keypath, value)
 
 
 class Test(unittest.TestCase):
