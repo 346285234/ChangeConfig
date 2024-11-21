@@ -6,11 +6,11 @@
 1. Get code.
 2. Create python env.
    ```
-   python -m venv changeconfig-env
+   python -m venv env
    ```
 3. Install dependence packages.
    ```
-   source changeconfig-env/bin/activate
+   source env/bin/activate
    pip install -r requirements.txt
    ```
 4. Run.
@@ -22,11 +22,11 @@
 
 1. Enter env.
     ```
-    source changeconfig-env/bin/activate
+    source env/bin/activate
     ```
 2. Deploy app.
    ```
-    ./changeconfig-env/binpyside6-deploy main.py
+    ./env/binpyside6-deploy main.py
     ```
 3. Codesign app.
     ```
