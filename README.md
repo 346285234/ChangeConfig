@@ -26,7 +26,7 @@
     ```
 2. Deploy app.
    ```
-    ./env/binpyside6-deploy main.py
+    ./env/bin/pyside6-deploy main.py
     ```
 3. Codesign app.
     ```
